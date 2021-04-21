@@ -1,8 +1,12 @@
 import 'package:covid_helper/services/widget.dart';
 import 'package:flutter/material.dart';
-import 'chat.dart';
+import 'package:covid_helper/services/navi.dart';
 
 class Request extends StatefulWidget {
+
+  const Request({ Key key, this.destination }) : super(key: key);
+  final Destination destination;
+
   @override
   _RequestState createState() => _RequestState();
 }
@@ -18,8 +22,7 @@ class _RequestState extends State<Request> {
     if (formKey.currentState.validate()) {
       setState(() {
         isLoading = true;
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => Chat(age:ageEditingController.text,name:nameEditingController.text)));
+        _submitDialog();
       });
     }
   }
@@ -64,7 +67,7 @@ class _RequestState extends State<Request> {
                     decoration: textFieldInputDecoration("Name"),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 17,
                   ),
                   TextFormField(
                     validator: (val) {
@@ -82,7 +85,7 @@ class _RequestState extends State<Request> {
               ),
             ),
             SizedBox(
-              height: 40,
+              height: 30,
             ),
             GestureDetector(
               onTap: () {
@@ -100,20 +103,47 @@ class _RequestState extends State<Request> {
                     )),
                 width: MediaQuery.of(context).size.width,
                 child: Text(
-                  "Start Conversation",
+                  "Submit",
                   style: biggerTextStyle(),
                   textAlign: TextAlign.center,
                 ),
               ),
             ),
             SizedBox(
-              height: 60,
+              height: 30,
             )
           ],
         ),
       ),
     );
 }
+
+  Future<void> _submitDialog() async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Request Submitted Successfully!'),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: <Widget>[
+                Text('Volunteer Will Contact You ASAP'),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: Text('OK'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
 }
 
 

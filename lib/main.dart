@@ -4,8 +4,11 @@ import 'package:covid_helper/views/request.dart';
 import 'package:flutter/material.dart';
 import 'package:covid_helper/views/signin.dart';
 import 'package:covid_helper/views/chat.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 void main() {
+  //GoogleMap.init('AIzaSyCtRPUbfbSgSdLiNzzSDIRPDjtkiT5jZTE');
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
 }
 
@@ -52,3 +55,4 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
+

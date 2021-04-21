@@ -5,7 +5,7 @@ import 'package:covid_helper/services/database.dart';
 import 'package:covid_helper/views/request.dart';
 import 'package:covid_helper/services/widget.dart';
 import 'package:flutter/material.dart';
-
+import 'package:covid_helper/services/navi.dart';
 class SignUp extends StatefulWidget {
   final Function toggleView;
   SignUp(this.toggleView);
@@ -34,7 +34,7 @@ class _SignUpState extends State<SignUp> {
         isLoading = true;
       });
       Navigator.pushReplacement(context, MaterialPageRoute(
-          builder: (context) => Request()
+          builder: (context) => Navi()
       ));
       await authService.signUpWithEmailAndPassword(emailEditingController.text,
           passwordEditingController.text).then((result){

@@ -5,14 +5,12 @@ import 'package:covid_helper/services/widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:covid_helper/views/request.dart';
+import 'package:covid_helper/services/navi.dart';
 
 class Chat extends StatefulWidget {
-  final String chatRoomId,age,name;
-  // final String age;
-  // final String name;
-  Chat({this.age,this.name,this.chatRoomId});
-  //Chat({Key key, @required this.age,this.name,this.chatRoomId}) : super(key: key);
 
+  const Chat({ Key key, this.destination }) : super(key: key);
+  final Destination destination;
 
   @override
   _ChatState createState() => _ChatState();
@@ -31,7 +29,7 @@ class _ChatState extends State<Chat> {
             itemBuilder: (context, index){
               return MessageTile(
                 message: snapshot.data.documents[index].data["message"],
-                sendByMe: Constants.myName == snapshot.data.documents[index].data["sendBy"],
+                //sendByMe: Constants.myName == widget.name,
               );
             }) : Container();
       },
@@ -48,7 +46,7 @@ class _ChatState extends State<Chat> {
             .millisecondsSinceEpoch,
       };
 
-      DatabaseMethods().addMessage(widget.chatRoomId, chatMessageMap);
+      DatabaseMethods().addMessage(chatMessageMap);
       setState(() {
         messageEditingController.text = "";
       });
@@ -57,8 +55,10 @@ class _ChatState extends State<Chat> {
 
   @override
   void initState() {
-    DatabaseMethods().getChats(widget.chatRoomId).then((val) {
+    DatabaseMethods().getChats().then((val) {
       setState(() {
+        messageEditingController.text = "name";
+        addMessage();
         chats = val;
       });
     });
@@ -75,13 +75,20 @@ class _ChatState extends State<Chat> {
           children: [
               Container(alignment: Alignment.topLeft,
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: Text('back'),
-                  ),
+                padding: const EdgeInsets.fromLTRB(130,10,0,0),
+                child: Text(
+                'Chat with A Volunteer',
+                textAlign: TextAlign.center,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(fontSize: 15.0,fontWeight: FontWeight.normal),
+              ),
+                // child: ElevatedButton(
+                //   onPressed: () {
+                //     Navigator.pushReplacement( context,
+                // MaterialPageRoute(builder: (context) => Navi()));
+                //   },
+                //   child: Text('back'),
+                //   ),
               ),
               ),
             chatMessages(),
@@ -119,7 +126,7 @@ class _ChatState extends State<Chat> {
                           decoration: BoxDecoration(
                               gradient: LinearGradient(
                                   colors: [
-                                    const Color(0x36FFFFFF),
+                                    const Color(0xFF17282E),
                                     const Color(0x0FFFFFFF)
                                   ],
                                   begin: FractionalOffset.topLeft,
@@ -189,7 +196,7 @@ class MessageTile extends StatelessWidget {
         child: Text(message,
             textAlign: TextAlign.start,
             style: TextStyle(
-                color: Colors.black,
+                color: Colors.white,
                 fontSize: 16,
                 fontFamily: 'OverpassRegular',
                 fontWeight: FontWeight.w300)),

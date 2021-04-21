@@ -17,36 +17,16 @@ class DatabaseMethods {
     });
   }
 
-  searchByName(String searchField) {
+  getChats() async{
     return Firestore.instance
-        .collection("users")
-        .where('userName', isEqualTo: searchField)
-        .getDocuments();
-  }
-
-  // Future<bool> addChatRoom(chatRoom, chatRoomId) {
-  //   Firestore.instance
-  //       .collection("chatRoom")
-  //       .document(chatRoomId)
-  //       .setData(chatRoom)
-  //       .catchError((e) {
-  //     print(e);
-  //   });
-  // }
-
-  getChats(String chatRoomId) async{
-    return Firestore.instance
-        .document(chatRoomId)
         .collection("chats")
         .orderBy('time')
         .snapshots();
   }
 
 
-  Future<void> addMessage(String chatRoomId, chatMessageData){
-
+  void addMessage(chatMessageData){
     Firestore.instance
-        .document(chatRoomId)
         .collection("chats")
         .add(chatMessageData).catchError((e){
       print(e.toString());
