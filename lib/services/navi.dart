@@ -3,6 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:covid_helper/views/request.dart';
 import 'package:covid_helper/views/chat.dart';
 import 'package:covid_helper/views/volunmap.dart';
+
 class Destination {
   const Destination(this.index, this.title, this.icon, this.color);
   final int index;
@@ -12,10 +13,10 @@ class Destination {
 }
 
 const List<Destination> allDestinations = <Destination>[
-  Destination(0, 'Request', Icons.help, Colors.teal),
-  Destination(1, 'Chat', Icons.chat, Colors.cyan),
-  Destination(2, 'Map', Icons.map, Colors.orange),
-  Destination(3, 'Settings', Icons.settings, Colors.blue)
+  Destination(0, 'Request', Icons.help, Colors.cyan),
+  Destination(1, 'Chat', Icons.chat, Colors.lightBlue),
+  Destination(2, 'Map', Icons.map, Colors.blue),
+  Destination(3, 'Settings', Icons.settings, Colors.indigo)
 ];
 
 class ViewNavigatorObserver extends NavigatorObserver {
@@ -148,10 +149,10 @@ class _Destination4ViewState extends State<Destination4View> {
 
 class Navi extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _NaviState createState() => _NaviState();
 }
 
-class _HomePageState extends State<Navi> with TickerProviderStateMixin<Navi> {
+class _NaviState extends State<Navi> with TickerProviderStateMixin<Navi> {
   List<Key> _destinationKeys;
   List<AnimationController> _faders;
   AnimationController _hide;
@@ -246,12 +247,6 @@ class _HomePageState extends State<Navi> with TickerProviderStateMixin<Navi> {
                                 _hide.forward();
                               },
                       ))
-                 //  child: DestinationView(
-                 //    destination: destination,
-                 //    onNavigation: () {
-                 //      _hide.forward();
-                 //    },
-                 // ),
                 ),
               );
               if (destination.index == _currentIndex) {

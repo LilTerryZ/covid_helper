@@ -100,7 +100,7 @@ class _SignUpState extends State<SignUp> {
               ),
             ),
             SizedBox(
-              height: 16,
+              height: 10,
             ),
             GestureDetector(
               onTap: (){
@@ -123,7 +123,7 @@ class _SignUpState extends State<SignUp> {
               ),
             ),
             SizedBox(
-              height: 16,
+              height: 10,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -147,7 +147,7 @@ class _SignUpState extends State<SignUp> {
               ],
             ),
             SizedBox(
-              height: 50,
+              height: 20,
             )
           ],
         ),

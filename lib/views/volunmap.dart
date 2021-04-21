@@ -17,8 +17,8 @@ class _VolunMapState extends State<VolunMap> {
   GoogleMapController mapController;
 
   static final CameraPosition _startpoint = CameraPosition(
-    target: LatLng(37.42796133580664, -122.085749655962),
-    zoom: 14.4746,
+    target: LatLng(43.468437, -79.698716),
+    zoom: 14,
   );
 
   void _onMapCreated(GoogleMapController controller) {
