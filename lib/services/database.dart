@@ -33,4 +33,13 @@ class DatabaseMethods {
     });
   }
 
+  void delete(){
+    Firestore.instance.collection('chats').getDocuments().then((snapshot) {
+      for (DocumentSnapshot ds in snapshot.documents){
+        ds.reference.delete();
+    }
+    });
+  }
+
+
 }

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "106336178445",
+    "project_id": "covidhelper-311406",
+    "storage_bucket": "covidhelper-311406.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:106336178445:android:ce01cea7df9e9f0eb26044",
+        "android_client_info": {
+          "package_name": "com.example.covid_helper"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "106336178445-7bri4n06de6juqp7q8dagke5sa0dsvv9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.covid_helper",
+            "certificate_hash": "b56a6918e4a7fed43e63eed3ab044a8903a059cd"
+          }
+        },
+        {
+          "client_id": "106336178445-br5enf5k34306o2eqfs8v2fk1ei7a76h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9fqOujEQXcylNF7UY9KSi5l361KsPZXQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "106336178445-br5enf5k34306o2eqfs8v2fk1ei7a76h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

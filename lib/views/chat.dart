@@ -29,7 +29,7 @@ class _ChatState extends State<Chat> {
             itemBuilder: (context, index){
               return MessageTile(
                 message: snapshot.data.documents[index].data["message"],
-                //sendByMe: Constants.myName == widget.name,
+                sendByMe: Constants.myName == snapshot.data.documents[index].data["sendBy"],
               );
             }) : Container();
       },
@@ -57,9 +57,9 @@ class _ChatState extends State<Chat> {
   void initState() {
     DatabaseMethods().getChats().then((val) {
       setState(() {
-        messageEditingController.text = "name";
-        addMessage();
+        DatabaseMethods().delete();
         chats = val;
+
       });
     });
     super.initState();
@@ -184,8 +184,8 @@ class MessageTile extends StatelessWidget {
                 bottomRight: Radius.circular(23)),
             gradient: LinearGradient(
               colors: sendByMe ? [
-                const Color(0xff000000),
-                const Color(0xff660C0C)
+                const Color(0xff3F525B),
+                const Color(0xff3F525B)
               ]
                   : [
                 const Color(0x1AFFFFFF),

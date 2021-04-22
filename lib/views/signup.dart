@@ -50,6 +50,9 @@ class _SignUpState extends State<SignUp> {
           HelperFunctions.saveUserNameSharedPreference(usernameEditingController.text);
           HelperFunctions.saveUserEmailSharedPreference(emailEditingController.text);
 
+          // Navigator.pushReplacement(context, MaterialPageRoute(
+          //     builder: (context) => Navi()
+          // ));
 
         }
       });
