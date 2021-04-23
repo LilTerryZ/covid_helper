@@ -1,21 +1,27 @@
 import 'package:covid_helper/services/helpfunctions.dart';
 import 'package:covid_helper/services/auth.dart';
 import 'package:covid_helper/services/database.dart';
+import 'package:covid_helper/services/navi.dart';
 import 'package:covid_helper/views/request.dart';
+import 'package:covid_helper/views/signup.dart';
 import 'package:covid_helper/views/forgot_password.dart';
 import 'package:covid_helper/services/widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class SignIn extends StatefulWidget {
-  final Function toggleView;
-  SignIn(this.toggleView);
+  // final Function toggleView;
+  // SignIn(this.toggleView);
+  // const SignIn({ Key key, this.destination }) : super(key: key);
+  // final Destination destination;
+
 
   @override
   _SignInState createState() => _SignInState();
 }
 
 class _SignInState extends State<SignIn> {
+
   TextEditingController emailEditingController = new TextEditingController();
   TextEditingController passwordEditingController = new TextEditingController();
 
@@ -188,7 +194,8 @@ class _SignInState extends State<SignIn> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    widget.toggleView();
+                    Navigator.pushReplacement(context, MaterialPageRoute(
+                        builder: (context) => SignUp()));
                   },
                   child: Text(
                     "Register now",

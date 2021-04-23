@@ -2,13 +2,13 @@ import 'package:covid_helper/services/helpfunctions.dart';
 //import 'package:covid_helper/helper/theme.dart';
 import 'package:covid_helper/services/auth.dart';
 import 'package:covid_helper/services/database.dart';
-import 'package:covid_helper/views/request.dart';
+import 'package:covid_helper/views/signIn.dart';
 import 'package:covid_helper/services/widget.dart';
 import 'package:flutter/material.dart';
 import 'package:covid_helper/services/navi.dart';
 class SignUp extends StatefulWidget {
-  final Function toggleView;
-  SignUp(this.toggleView);
+  // final Function toggleView;
+  // SignUp(this.toggleView);
 
   @override
   _SignUpState createState() => _SignUpState();
@@ -137,7 +137,8 @@ class _SignUpState extends State<SignUp> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    widget.toggleView();
+                    Navigator.pushReplacement(context, MaterialPageRoute(
+                        builder: (context) => SignIn()));
                   },
                   child: Text(
                     "Sign In now",

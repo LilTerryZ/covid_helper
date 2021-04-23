@@ -3,6 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:covid_helper/views/request.dart';
 import 'package:covid_helper/views/chat.dart';
 import 'package:covid_helper/views/volunmap.dart';
+import 'package:covid_helper/views/about.dart';
 
 class Destination {
   const Destination(this.index, this.title, this.icon, this.color);
@@ -16,7 +17,7 @@ const List<Destination> allDestinations = <Destination>[
   Destination(0, 'Request', Icons.help, Colors.cyan),
   Destination(1, 'Chat', Icons.chat, Colors.lightBlue),
   Destination(2, 'Map', Icons.map, Colors.blue),
-  Destination(3, 'Settings', Icons.settings, Colors.indigo)
+  Destination(3, 'About us', Icons.integration_instructions, Colors.indigo)
 ];
 
 class ViewNavigatorObserver extends NavigatorObserver {
@@ -129,6 +130,7 @@ class Destination4View extends StatefulWidget {
 }
 
 class _Destination4ViewState extends State<Destination4View> {
+
   @override
   Widget build(BuildContext context) {
     return Navigator(
@@ -139,7 +141,7 @@ class _Destination4ViewState extends State<Destination4View> {
         return MaterialPageRoute(
           settings: settings,
           builder: (BuildContext context) {
-            return VolunMap(destination: widget.destination);
+            return About(destination:widget.destination);
           },
         );
       },
@@ -197,7 +199,7 @@ class _NaviState extends State<Navi> with TickerProviderStateMixin<Navi> {
     return false;
   }
 
-  TValue case2<TOptionType, TValue>(
+  TValue page_index<TOptionType, TValue>(
       TOptionType selectedOption,
       Map<TOptionType, TValue> branches, [
         TValue defaultValue = null,
@@ -223,7 +225,7 @@ class _NaviState extends State<Navi> with TickerProviderStateMixin<Navi> {
                 child: KeyedSubtree(
                   key: _destinationKeys[destination.index],
 
-                    child: case2(_currentIndex,
+                    child:page_index(_currentIndex,
                         {
                           1: Destination2View(
                              destination: destination,
@@ -286,5 +288,6 @@ class _NaviState extends State<Navi> with TickerProviderStateMixin<Navi> {
       ),
     );
   }
+
 }
 
