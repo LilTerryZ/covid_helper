@@ -1,6 +1,6 @@
 CovidHelper
 
-Haonan Zhang Tanishq Korada Ramkumar
+Project by: Haonan Zhang & Tanishq Korada Ramkumar
 
 Its an app about COVID-19,  the app has a feature that seniors in need are able to contact volunteerss to help them.
 
