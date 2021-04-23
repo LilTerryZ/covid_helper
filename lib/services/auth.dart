@@ -1,7 +1,6 @@
 import 'package:covid_helper/model/user.dart';
-import 'package:covid_helper/views/chat.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
+
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
