@@ -1,5 +1,4 @@
 import 'package:covid_helper/services/helpfunctions.dart';
-//import 'package:covid_helper/helper/theme.dart';
 import 'package:covid_helper/services/auth.dart';
 import 'package:covid_helper/services/database.dart';
 import 'package:covid_helper/views/signIn.dart';
@@ -49,11 +48,6 @@ class _SignUpState extends State<SignUp> {
           // HelperFunctions.saveUserLoggedInSharedPreference(true);
           HelperFunctions.saveUserNameSharedPreference(usernameEditingController.text);
           HelperFunctions.saveUserEmailSharedPreference(emailEditingController.text);
-
-          // Navigator.pushReplacement(context, MaterialPageRoute(
-          //     builder: (context) => Navi()
-          // ));
-
         }
       });
     }

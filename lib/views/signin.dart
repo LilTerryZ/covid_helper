@@ -12,9 +12,6 @@ import 'package:flutter/material.dart';
 class SignIn extends StatefulWidget {
   // final Function toggleView;
   // SignIn(this.toggleView);
-  // const SignIn({ Key key, this.destination }) : super(key: key);
-  // final Destination destination;
-
 
   @override
   _SignInState createState() => _SignInState();
@@ -26,9 +23,7 @@ class _SignInState extends State<SignIn> {
   TextEditingController passwordEditingController = new TextEditingController();
 
   AuthService authService = new AuthService();
-
   final formKey = GlobalKey<FormState>();
-
   bool isLoading = false;
 
   Future<void> _errorDialog() async {

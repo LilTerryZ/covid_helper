@@ -82,13 +82,6 @@ class _ChatState extends State<Chat> {
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(fontSize: 15.0,fontWeight: FontWeight.normal),
               ),
-                // child: ElevatedButton(
-                //   onPressed: () {
-                //     Navigator.pushReplacement( context,
-                // MaterialPageRoute(builder: (context) => Navi()));
-                //   },
-                //   child: Text('back'),
-                //   ),
               ),
               ),
             chatMessages(),

@@ -1,17 +1,5 @@
-import 'dart:io';
-import 'package:covid_helper/services/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:covid_helper/views/signin.dart';
 import 'package:covid_helper/services/navi.dart';
-import 'dart:async';
-import 'package:flutter/material.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:covid_helper/services/helpfunctions.dart';
-//import 'package:covid_helper/helper/theme.dart';
-import 'package:covid_helper/services/auth.dart';
-import 'package:covid_helper/services/database.dart';
-import 'package:covid_helper/views/signin.dart';
-import 'package:covid_helper/services/widget.dart';
 
 class About extends StatefulWidget {
   const About({ Key key, this.destination }) : super(key: key);
